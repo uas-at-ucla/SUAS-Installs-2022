@@ -5,12 +5,43 @@ Instructions and scripts for installing 'stuff' for SUAS
 ---
 Install python3.9
 
-## ArduPilot
+## ArduPlane
 ---
 words
-## XLaunch
+
+Open WSL
+run script
+Close WSL
+
+## VcXsrv
 ---
-words
+The ArduPlane simulator will run on WSL, but to access the graphical simulation, we need to tell
+WSL to port the graphics to the Windows host system.
+To do this, we use an VcXsrv server to receive the graphics.
+
+To install VcXsrv, follow the instructions [here](https://sourceforge.net/projects/vcxsrv/)
+
+This will create a program called XLaunch which will launch the VcXsrv server.
+
+**ADD how to connect WSL to VcXsrv**
+
+## Clone UAS SUAS-flight-2023 repository
+---
+When we write code, we want to
+1. share it with others
+2. keep track of old version of the code
+
+To do this, we use Git, a version control software.
+Through Git, we use a repository to hold the code for a single project.
+
+Clone (download) our flight 2023 repository by doing the following
+```bash
+git clone https://github.com/uas-at-ucla/suas-flight-2023.git
+cd suas-flight-2023
+```
+This will create a *new* folder called suas-flight-2023 and changes directory to it.
+This is where all the development for our flight software will be kept.
+
 ## Python Virtual Environment
 ---
 To manage our Python libraries, we use Pip3.
