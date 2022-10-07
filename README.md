@@ -5,13 +5,15 @@ Instructions and scripts for installing 'stuff' for SUAS
 ---
 Install python3.9
 
+**ADD Python installation process**
+
 ## ArduPlane
 ---
 words
 
-Open WSL
-run script
-Close WSL
+**Open WSL**
+**run script**
+**Close WSL**
 
 ## VcXsrv
 ---
@@ -83,6 +85,8 @@ This is basically a fancy text editor made specifically to write code.
 We recommend using VSCode for our projects. VSCode allows for a lot of customization and sharing them.
 
 You can find VSCode [here](https://code.visualstudio.com/Download)
+
+**TBD: VSCode extension and configuration**
 
 ## Windows Terminal (recommended)
 ---
