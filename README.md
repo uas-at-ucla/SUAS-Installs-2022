@@ -100,6 +100,8 @@ You can then start Gazebo with an empty world using
 ```bash
 gazebo --verbose
 ```
+>**NOTE:** if you are using WSL2 on Windows10, you must have Xsrv running to see the Gazebo GUI
+
 
 To use Gazebo for testing, follow the Wiki page [link TDB]() or the DroneKit workshop tutorial
 
