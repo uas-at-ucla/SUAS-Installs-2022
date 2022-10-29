@@ -38,33 +38,35 @@ ArduPlane is a version of PX4's simulation software used in order to visualize t
 1. Open your linux terminal (either wsl2, cygwin, or your terminal in your virtual machine)
 2. Run the provided **ubuntu_arduplane_install.sh** script in the terminal, using the following command: 
     ``` bash
-        bash ubuntu_arduplane_install.sh
+    bash ubuntu_arduplane_install.sh
     ```
     - If you're running wsl2, you should be able to navigate to the folder where this file is using ```cd```, then run the script. 
     - For **virtual machine users**, it may be easier to either open the script, and copy the contents into your terminal, and run each line individually. Or, for the brave of heart, 
         1. Install git on the linux installation using the terminal using the following command
             ``` bash
-                sudo apt install git
+            sudo apt install git
             ```
         2. Clone this repo in the virtual machine, using the following command
-            ```
+            ```bash
             git clone https://github.com/uas-at-ucla/SUAS-Installs.git
             ```
         3. Run the following to go into the directory, and run the installer.
-            ```
+            ```bash
             cd SUAS-Installs
             bash ubuntu_arduplane_install.sh
             ```
 
-**NOTE: This installation takes A WHILE.**
+>**NOTE: This installation takes A WHILE.**
 
 ## VcXsrv
 ---
-**NOTE: Needed for WSL2 on Windows 10 ONLY**
+>**NOTE: Needed for WSL2 on Windows 10 ONLY**
 
 The ArduPlane simulator will run on WSL, but to access the graphical simulation, we need to tell
 WSL to port the graphics to the Windows host system.
 To do this, we use an VcXsrv server to receive the graphics.
+
+>**NOTE: install this on your Windows host system, i.e. not through WSL**
 
 To install VcXsrv, follow the instructions [here](https://sourceforge.net/projects/vcxsrv/)
 
@@ -76,7 +78,30 @@ Run the following lines to the end of your ~/.bashrc file using wsl2
 export DISPLAY=$(ip route list default | awk '{print $3}'):0
 export LIBGL_ALWAYS_INDIRECT=1
 ```
+Or run the following script in WSL
+```bash
+./Xwindows.sh
+```
+which will automatically add in the DISPLAY and LIBGL_ALWAYS_INDIRECT variable lines
+
 Then run XLaunch. While running, simply keep the default settings at all pages except the second-to-last one. Here, make sure to check the **"disable access control"** box. Then, finish the run.
+
+## Gazebo (recommended for testing)
+---
+Gazebo is the 3D visualization software we will be using for our simulations.
+This runs on an Ubuntu environment, so install it on your VM or WSL environment.
+
+To install use the provided script
+```bash
+./gazebo_install.sh
+```
+
+You can then start Gazebo with an empty world using
+```bash
+gazebo --verbose
+```
+
+To use Gazebo for testing, follow the Wiki page [link TDB]() or the DroneKit workshop tutorial
 
 ## Clone UAS SUAS-flight-2023 repository
 ---
@@ -97,6 +122,9 @@ This is where all the development for our flight software will be kept.
 
 ## Python Virtual Environment
 ---
+>**NOTE:** This is not required for the SUAS-Installs repo, but will be needed to setup SUAS-flight later.
+>For now, consider this as practice.
+
 To manage our Python libraries, we use Pip3.
 However, we also want a program to isolate our workspaces so we don't use include packages from other workspaces.
 The solution to this is a Python virtual environment (venv).
