@@ -22,7 +22,7 @@ sudo apt-get install gz-garden
 # Plugin for Gazebo Garden
 sudo apt update
 sudo apt install libgz-sim7-dev rapidjson-dev
-cd ~
+CUR_LOC="$(pwd)"
 mkdir -p gz_ws/src && cd gz_ws/src
 git clone https://github.com/ArduPilot/ardupilot_gazebo
 cd ardupilot_gazebo
@@ -30,6 +30,6 @@ mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
 make -j4
 
-export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/gz_ws/src/ardupilot_gazebo/build:$GZ_SIM_SYSTEM_PLUGIN_PATH
-export GZ_SIM_RESOURCE_PATH=$HOME/gz_ws/src/ardupilot_gazebo/models:$HOME/gz_ws/src/ardupilot_gazebo/worlds:$GZ_SIM_RESOURCE_PATH
+export GZ_SIM_SYSTEM_PLUGIN_PATH=$CUR_LOC/gz_ws/src/ardupilot_gazebo/build:$GZ_SIM_SYSTEM_PLUGIN_PATH
+export GZ_SIM_RESOURCE_PATH=$CUR_LOC/gz_ws/src/ardupilot_gazebo/models:$CUR_LOC/gz_ws/src/ardupilot_gazebo/worlds:$GZ_SIM_RESOURCE_PATH
 source ~/.bashrc
