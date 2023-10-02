@@ -1,16 +1,3 @@
-# Gazebo Classic
-# sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-# wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-# sudo apt update
-# sudo apt install gazebo9 libgazebo9-dev libgazebo9 gazebo9-common
-# git clone https://github.com/khancyr/ardupilot_gazebo
-# cd ardupilot_gazebo
-# mkdir build
-# cd build
-# cmake ..
-# make -j4
-# sudo make install
-
 # Gazebo Garden
 sudo apt-get update
 sudo apt-get install lsb-release wget gnupg
@@ -30,6 +17,6 @@ mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo
 make -j4
 
-export GZ_SIM_SYSTEM_PLUGIN_PATH=$CUR_LOC/gz_ws/src/ardupilot_gazebo/build:$GZ_SIM_SYSTEM_PLUGIN_PATH
-export GZ_SIM_RESOURCE_PATH=$CUR_LOC/gz_ws/src/ardupilot_gazebo/models:$CUR_LOC/gz_ws/src/ardupilot_gazebo/worlds:$GZ_SIM_RESOURCE_PATH
+echo "export GZ_SIM_SYSTEM_PLUGIN_PATH=${CUR_LOC}/gz_ws/src/ardupilot_gazebo/build:\${GZ_SIM_SYSTEM_PLUGIN_PATH}" >> ~/.bashrc
+echo "export GZ_SIM_RESOURCE_PATH=${CUR_LOC}/gz_ws/src/ardupilot_gazebo/models:${CUR_LOC}/gz_ws/src/ardupilot_gazebo/worlds:\${GZ_SIM_RESOURCE_PATH}" >> ~/.bashrc
 source ~/.bashrc
